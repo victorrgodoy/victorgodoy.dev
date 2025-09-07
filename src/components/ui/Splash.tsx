@@ -4,7 +4,6 @@ import {
   useMotionValue,
   animate,
   MotionValue,
-  AnimatePresence,
 } from "motion/react";
 
 export default function Splash() {
