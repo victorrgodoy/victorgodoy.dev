@@ -1,31 +1,31 @@
-import * as motion from "motion/react-client"
-import { useState, useEffect } from "react"
+import { motion } from "motion/react";
+import { useState, useEffect } from "react";
 
 export default function ButtonMode() {
   const [isDark, setIsDark] = useState(
-    document.documentElement.classList.contains("dark")
-  )
+    document.documentElement.classList.contains("dark"),
+  );
 
   // observa mudanças na classe do html
   useEffect(() => {
     const observer = new MutationObserver(() => {
-      const htmlHasDark = document.documentElement.classList.contains("dark")
-      setIsDark(htmlHasDark)
-    })
+      const htmlHasDark = document.documentElement.classList.contains("dark");
+      setIsDark(htmlHasDark);
+    });
 
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["class"],
-    })
+    });
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   const toggleSwitch = () => {
-    const next = !isDark
-    setIsDark(next)
-    document.documentElement.classList.toggle("dark", next)
-  }
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.classList.toggle("dark", next);
+  };
 
   return (
     <button
@@ -43,5 +43,5 @@ export default function ButtonMode() {
         }}
       />
     </button>
-  )
+  );
 }

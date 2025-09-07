@@ -1,19 +1,23 @@
 import { useState, useEffect } from "react";
-import { motion, useMotionValue, animate, MotionValue } from "motion/react";
+import {
+  motion,
+  useMotionValue,
+  animate,
+  MotionValue,
+  AnimatePresence,
+} from "motion/react";
 
 export default function Splash() {
   const [isVisible, setIsVisible] = useState<boolean>(true);
   const [display, setDisplay] = useState<number>(0);
-  const [showText, setShowText] = useState<boolean>(false);
   const count: MotionValue<number> = useMotionValue(0);
 
   useEffect(() => {
     const controls = animate(count, 100, {
-      duration: 2,
+      duration: 2.5,
       onUpdate: (latest) => setDisplay(Math.round(latest)),
       onComplete: () => {
-        setShowText(true);
-        setTimeout(() => setIsVisible(false), 2000);
+        setTimeout(() => setIsVisible(false), 3000);
       },
     });
     return () => controls.stop();
@@ -26,25 +30,15 @@ export default function Splash() {
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="bg-[#DDD9D5] absolute inset-0"></div>
       <motion.div
-        className="bg-[#262C31] h-full absolute flex items-center justify-center text-[#DDD9D5] text-4xl lg:text-6xl"
+        className="bg-[#262C31] h-full absolute flex items-center justify-center text-[#DDD9D5] text-4xl lg:text-4xl"
         style={{ width: `${display}%` }}
       >
         {display}%
       </motion.div>
-
-      {showText && (
-        <motion.div
-          className="absolute inset-0 flex items-center justify-center text-[#DDD9D5] font-medium text-xl lg:text-2xl translate-y-[-4rem]"
-          initial={{ scale: 0.9 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1 }}
-        >
-          VICTORGODOY.DEV
-        </motion.div>
-      )}
     </motion.div>
   );
 }

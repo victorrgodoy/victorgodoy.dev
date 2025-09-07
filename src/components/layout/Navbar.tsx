@@ -1,8 +1,9 @@
 import ButtonMode from "../ui/ButtonMode";
 import { NavLink } from "react-router-dom";
-import ClickSound from "../ui/ClickSound";
 import Clock from "../ui/Clock";
 import MenuNav from "../ui/MenuNav";
+import clickSound from "../../assets/sounds/click.wav";
+import useSound from "use-sound";
 
 const links = [
   { name: "HOME", to: "/" },
@@ -12,22 +13,23 @@ const links = [
 ];
 
 function Navbar() {
+  const [play] = useSound(clickSound, { volume: 0.5 });
+
   return (
     <nav className="h-20 flex justify-between items-center">
       <div className="font-medium text-5xl">Vg</div>
       <ul className="hidden md:flex gap-6 ms-20 items-center font-normal text-sm">
         {links.map((link) => (
           <li key={link.name}>
-            <ClickSound>
-              <NavLink
-                to={link.to}
-                className={({ isActive }) =>
-                  `${isActive ? "text-[var(--color-link-active)]" : ""}`
-                }
-              >
-                {link.name}
-              </NavLink>
-            </ClickSound>
+            <NavLink
+              to={link.to}
+              onClick={() => play()}
+              className={({ isActive }) =>
+                `${isActive ? "text-[var(--color-link-active)]" : ""}`
+              }
+            >
+              {link.name}
+            </NavLink>
           </li>
         ))}
         <ButtonMode />
