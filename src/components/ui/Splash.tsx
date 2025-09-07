@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react"
-import { motion, useMotionValue, animate } from "motion/react"
+import { motion, useMotionValue, animate, MotionValue} from "motion/react"
 
 export default function Splash() {
-  const [isVisible, setIsVisible] = useState(true);
-  const [display, setDisplay] = useState(0);
-  const [showText, setShowText] = useState(false);
-  const count = useMotionValue(0)
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [display, setDisplay] = useState<number>(0);
+  const [showText, setShowText] = useState<boolean>(false);
+  const count:MotionValue<number> = useMotionValue(0)
 
   useEffect(() => {
     const controls = animate(count, 100, {
-      duration: 5,
+      duration: 3,
       onUpdate: (latest) => setDisplay(Math.round(latest)),
       onComplete: () => {
         setShowText(true)
@@ -37,7 +37,7 @@ export default function Splash() {
 
         {showText && 
         < motion.div
-        className="absolute inset-0 flex items-center justify-center text-[#DDD9D5] italic text-2xl translate-y-[-4rem]"
+        className="absolute inset-0 flex items-center justify-center text-[#DDD9D5] font-extralight text-xl translate-y-[-4rem]"
         initial={{ scale: 0.9}}
         animate={{ scale: 1}}
         transition={{ duration: 2 }}
