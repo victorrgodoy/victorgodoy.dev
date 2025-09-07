@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Hurricane&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caramel&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import "tailwindcss";
 
 :root {
-    /* Color */
-    --color-background: #DDD9D5;
-    --color-text:#E11B1E;
-    --color-link-active:#801517;
-    
-    /* Text */
-    --font-primary: 'IBM Plex Mono', monospace;
+  /* Color */
+  --color-background: #ddd9d5;
+  --color-text: #e11b1e;
+  --color-link-active: #801517;
+
+  /* Text */
+  --font-primary: "IBM Plex Mono", monospace;
 }
 
 .dark {
-    --color-background: #262C31;
-    --color-text:#BCBCBC;
-     --color-link-active:#7d7d7d;
+  --color-background: #262c31;
+  --color-text: #bcbcbc;
+  --color-link-active: #7d7d7d;
 }
 
 body {

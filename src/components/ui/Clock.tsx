@@ -8,12 +8,12 @@ function Clock() {
       setTime(new Date());
     }, 1000);
 
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="text-sm">
-      {time.toLocaleTimeString("pt-BR", {timeZone: "America/Sao_Paulo"})} 
+      {time.toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo" })}
     </div>
   );
 }
