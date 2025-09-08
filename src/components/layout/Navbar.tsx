@@ -4,6 +4,7 @@ import Clock from "../ui/Clock";
 import MenuNav from "../ui/MenuNav";
 import clickSound from "../../assets/sounds/click.wav";
 import useSound from "use-sound";
+import { Logo } from "../ui/Icon"; 
 
 const links = [
   { name: "HOME", to: "/" },
@@ -17,7 +18,7 @@ function Navbar() {
 
   return (
     <nav className="h-20 flex justify-between items-center">
-      <div className="font-medium text-5xl">Vg</div>
+      <Logo/>
       <ul className="hidden md:flex gap-6 ms-20 items-center font-normal text-sm">
         {links.map((link) => (
           <li key={link.name}>

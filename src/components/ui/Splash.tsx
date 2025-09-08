@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  motion,
-  useMotionValue,
-  animate,
-  MotionValue,
-} from "motion/react";
+import { motion, useMotionValue, animate, MotionValue } from "motion/react";
 
 export default function Splash() {
   const [isVisible, setIsVisible] = useState<boolean>(true);
@@ -25,18 +20,29 @@ export default function Splash() {
   if (!isVisible) return null;
   return (
     <motion.div
-      className="fixed h-screen w-screen inset-0"
-      initial={{ opacity: 1 }}
+      className="fixed h-screen w-screen inset-0 flex"
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 1, ease: "easeOut" }}
     >
-      <div className="bg-[#DDD9D5] absolute inset-0"></div>
       <motion.div
-        className="bg-[#262C31] h-full absolute flex items-center justify-center text-[#DDD9D5] text-4xl lg:text-4xl"
+        className="bg-[#262C31] h-full absolute flex items-center justify-center text-[#DDD9D5] text-3xl md:text-4xl font-extralight"
+        initial={{ opacity: 0.8 }}
+        animate={{ opacity: 1 }}
+        exit={{opacity:0}}
+        transition={{ duration: 1, ease: "easeInOut" }}
         style={{ width: `${display}%` }}
       >
         {display}%
+        {display >= 90 && ( 
+        <motion.p
+          className="absolute mt-20 font-light text-xs md:text-xl"
+          initial={{ opacity: 0.2 }}
+          animate={{ opacity: 0.8 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+        >by @victorrgodoy
+        </motion.p>
+      )}
       </motion.div>
     </motion.div>
   );

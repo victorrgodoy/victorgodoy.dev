@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 import ButtonMode from "./ButtonMode";
 import useSound from "use-sound";
 import clickSound from "../../assets/sounds/click.wav";
+import ButtonMenuNav from "./ButtonMenuNav";
+import { Github, Linkedin } from "./Icon";
 
 function MenuNav() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -18,38 +20,26 @@ function MenuNav() {
 
   return (
     <>
-      <motion.button
-        onClick={() => setIsOpen(true)}
-        className="md:hidden bg-[var(--text-color)] border-2 border-dashed p-1 text-sm cursor-pointer"
-        whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
-        whileTap={{ scale: 0.9 }}
-      >
-        MENU
-      </motion.button>
+      <ButtonMenuNav isOpen={isOpen} setIsOpen={setIsOpen} play={play}/>
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: -10, x: "-50%" }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0.3}}
+            animate={{ opacity: 1}}
             exit={{ opacity: 0, y: "-100%" }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="bg-[var(--color-text)] text-[var(--color-background)] text-base absolute top-0 bottom-0 right-0 flex flex-col items-center shadow-lg w-1/2"
-          >
-            <button
-              className="w-17 h-12 mt-6 cursor-pointer"
-              onClick={() => {
-                play();
-                setIsOpen(false);
-              }}
-            >
-              CLOSE
-            </button>
-            <ul className="flex flex-col gap-5 items-center mt-20 font-normal">
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className="bg-[var(--color-text)] text-[var(--color-background)] text-base absolute top-0 right-0 flex flex-col shadow-lg w-full h-auto py-10 px-4 z-40"
+          > 
+            <ul className="flex flex-col gap-5 items-center mt-20 mb-20 font-medium">
+              <ButtonMode />
               {links.map((link) => (
                 <li key={link.name}>
                   <NavLink
                     to={link.to}
-                    onClick={() => play()}
+                    onClick={() => {
+                      play();
+                      setIsOpen(false)
+                    }}
                     className={({ isActive }) =>
                       `${isActive ? "text-[var(--color-link-active)]" : ""}`
                     }
@@ -58,11 +48,19 @@ function MenuNav() {
                   </NavLink>
                 </li>
               ))}
-              <ButtonMode />
             </ul>
+            <div className="flex justify-between items-center">
+              <div className="flex">
+              <Github className="w-10 h-10" />
+              <Linkedin className="w-10 h-10" />
+              </div>
+              <p className="italic">by @victorrgodoy</p>
+              </div>
+              
           </motion.div>
         )}
       </AnimatePresence>
+
     </>
   );
 }

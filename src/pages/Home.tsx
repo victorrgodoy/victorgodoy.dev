@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import SocialLink from "../components/ui/SocialLink";
 
 const containerVariants = {
   hidden: { opacity: 0, x: -50 },
@@ -14,7 +15,7 @@ function Home() {
       initial="hidden"
       animate="visible"
       exit="exit"
-      transition={{ duration: 0.5, ease: "easeInOut" }} // <- aqui
+      transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       <h1 className="mb-4 font-medium text-2xl md:text-3xl">
         FULL STACK DEVELOPER
@@ -28,23 +29,15 @@ function Home() {
       </div>
 
       <div className="flex gap-2 text-base">
-        <a
-          className="underline"
+        <SocialLink
           href="https://github.com/victorrgodoy"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
+          descripton="GitHub"
+        />
         /
-        <a
-          className="underline"
+        <SocialLink
           href="https://www.linkedin.com/in/victorgodoy-/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
+          descripton="LinkedIn"
+        />
       </div>
     </motion.section>
   );
