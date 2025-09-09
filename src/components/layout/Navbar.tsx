@@ -9,8 +9,6 @@ import { Logo } from "../ui/Icon";
 const links = [
   { name: "HOME", to: "/" },
   { name: "ABOUT", to: "/about" },
-  { name: "SKILL", to: "/skill" },
-  { name: "CONTACT", to: "/contact" },
 ];
 
 function Navbar() {
@@ -19,7 +17,7 @@ function Navbar() {
   return (
     <nav className="h-20 flex justify-between items-center">
       <Logo/>
-      <ul className="hidden md:flex gap-6 ms-20 items-center font-normal text-sm">
+      <ul className="hidden md:flex gap-6 ms-20 items-center font-medium text-sm">
         {links.map((link) => (
           <li key={link.name}>
             <NavLink

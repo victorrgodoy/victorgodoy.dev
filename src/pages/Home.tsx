@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import SocialLink from "../components/ui/SocialLink";
+import ParticlesBackground from "../components/ui/ParticlesBackground";
 
 const containerVariants = {
   hidden: { opacity: 0, x: -50 },
@@ -9,6 +10,8 @@ const containerVariants = {
 
 function Home() {
   return (
+    <>
+     <ParticlesBackground /> 
     <motion.section
       className="w-[450px] mt-24"
       variants={containerVariants}
@@ -17,13 +20,12 @@ function Home() {
       exit="exit"
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      <h1 className="mb-4 font-medium text-2xl md:text-3xl">
-        FULL STACK DEVELOPER
+      <h1 className="mb-4 font-medium text-3xl md:text-5xl/14">
+        Web Developer Crafting Solutions
       </h1>
 
-      <div className="font-normal text-xs mb-14">
-        <p>Backend and frontend.</p>
-        <p>Developer specializing in modern web applications.</p>
+      <div className="font-normal text-sm/5 mb-14">
+        <p>Modern web applications.</p>
         <p>AI-driven solutions.</p>
         <p>Server-side development with databases.</p>
       </div>
@@ -33,13 +35,14 @@ function Home() {
           href="https://github.com/victorrgodoy"
           descripton="GitHub"
         />
-        /
+        
         <SocialLink
           href="https://www.linkedin.com/in/victorgodoy-/"
           descripton="LinkedIn"
         />
       </div>
     </motion.section>
+    </>
   );
 }
 

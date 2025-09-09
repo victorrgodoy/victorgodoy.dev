@@ -11,11 +11,15 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
+    "@tsparticles/engine": "^3.9.1",
+    "@tsparticles/react": "^3.0.0",
     "motion": "^12.23.12",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.8.2",
+    "react-tsparticles": "^2.12.2",
     "tailwindcss": "^4.1.13",
+    "tsparticles": "^3.9.1",
     "use-sound": "^5.0.0"
   },
   "devDependencies": {
