@@ -12,7 +12,8 @@ function Clock() {
   }, []);
 
   return (
-    <div className="text-sm">
+    <div className="text-xs font-normal text-[var(--color-text)]">
+      BRAZIL{" "}
       {time.toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo" })}
     </div>
   );

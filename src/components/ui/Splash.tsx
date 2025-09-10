@@ -11,7 +11,7 @@ export default function Splash() {
       duration: 2.5,
       onUpdate: (latest) => setDisplay(Math.round(latest)),
       onComplete: () => {
-        setTimeout(() => setIsVisible(false), 3000);
+        setTimeout(() => setIsVisible(false), 2000);
       },
     });
     return () => controls.stop();
@@ -20,29 +20,30 @@ export default function Splash() {
   if (!isVisible) return null;
   return (
     <motion.div
-      className="fixed h-screen w-screen inset-0 flex"
+      className="fixed h-screen w-screen inset-0 flex bg-[#EAEAEA]"
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
     >
       <motion.div
-        className="bg-[#262C31] h-full absolute flex items-center justify-center text-[#DDD9D5] text-3xl md:text-4xl font-extralight"
-        initial={{ opacity: 0.8 }}
+        className="bg-[#1C1C1C] h-full absolute flex items-center justify-center text-[#F5F5F5] text-3xl md:text-4xl font-light tracking-widest"
+        initial={{ opacity: 1 }}
         animate={{ opacity: 1 }}
-        exit={{opacity:0}}
+        exit={{ opacity: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
         style={{ width: `${display}%` }}
       >
         {display}%
-        {display >= 90 && ( 
-        <motion.p
-          className="absolute mt-20 font-light text-xs md:text-xl"
-          initial={{ opacity: 0.2 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-        >by @victorrgodoy
-        </motion.p>
-      )}
+        {display >= 90 && (
+          <motion.p
+            className="absolute mt-20 font-medium text-xs md:text-xl tracking-widest"
+            initial={{ opacity: 0.2 }}
+            animate={{ opacity: 0.8 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+          >
+            by @victorrgodoy
+          </motion.p>
+        )}
       </motion.div>
     </motion.div>
   );

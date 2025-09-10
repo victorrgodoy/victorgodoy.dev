@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import SocialLink from "../components/ui/SocialLink";
-import ParticlesBackground from "../components/ui/ParticlesBackground";
 
 const containerVariants = {
   hidden: { opacity: 0, x: -50 },
@@ -11,37 +10,41 @@ const containerVariants = {
 function Home() {
   return (
     <>
-     <ParticlesBackground /> 
-    <motion.section
-      className="w-[450px] mt-24"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-    >
-      <h1 className="mb-4 font-medium text-3xl md:text-5xl/14">
-        Web Developer Crafting Solutions
-      </h1>
+      <motion.section
+        className="grid grid-cols-24 gap-6 bg-red-600 h-full"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      >
+        <div className="col-span-7 flex flex-col justify-between bg-black">
+          <div>
+          <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-9">
+              VICTOR GODOY
+          </h1>
 
-      <div className="font-normal text-sm/5 mb-14">
-        <p>Modern web applications.</p>
-        <p>AI-driven solutions.</p>
-        <p>Server-side development with databases.</p>
-      </div>
+          <div className="font-light text-sm/5 mb-14 text-[var(--color-text-2)]">
+            A Systems Analysis and Development student passionate about modern
+            web applications, AI-powered solutions, and robust server-side
+            development with databases.
+          </div>
 
-      <div className="flex gap-2 text-base">
-        <SocialLink
-          href="https://github.com/victorrgodoy"
-          descripton="GitHub"
-        />
-        
-        <SocialLink
-          href="https://www.linkedin.com/in/victorgodoy-/"
-          descripton="LinkedIn"
-        />
-      </div>
-    </motion.section>
+          <div className="flex gap-2 font-light text-sm text-[var(--color-text-2)]">
+            <SocialLink
+              href="https://github.com/victorrgodoy"
+              descripton="GitHub"
+            />
+
+            <SocialLink
+              href="https://www.linkedin.com/in/victorgodoy-/"
+              descripton="LinkedIn"
+            />
+          </div>
+          </div>
+          <p className="font-light text-sm text-[var(--color-text-2)] ">A full-stack developer</p>
+        </div>
+      </motion.section>
     </>
   );
 }

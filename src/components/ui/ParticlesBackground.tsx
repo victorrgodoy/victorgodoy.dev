@@ -21,33 +21,41 @@ export default function ParticlesBackground() {
   };
 
   // Opções de partículas (minimalistas e modernas)
-  const options: ISourceOptions = useMemo(() => ({
-    fpsLimit: 60,
-    particles: {
-      number: { value: 30, density: { enable: true } },
-      color: { value: "#c2c2c2"},
-      shape: {type:"star"},
-      links: {
-  enable: true,
-  distance: 150,
-  color: "#c2c2c2",
-  opacity: 0.5,
-  width: 1,
-},
-      opacity: { value: 0.5 },
-      size: { value: { min: 1, max: 3 } },
-      move: { enable: true, speed: 1, outModes: { default: OutMode.bounce }, direction: MoveDirection.none },
-    },
-    interactivity: {
-      events: {
-        onHover: { enable: true, mode: "repulse" },
-        onClick: { enable: true, mode: "push" },
+  const options: ISourceOptions = useMemo(
+    () => ({
+      fpsLimit: 60,
+      particles: {
+        number: { value: 30, density: { enable: true } },
+        color: { value: "#c2c2c2" },
+        shape: { type: "star" },
+        links: {
+          enable: true,
+          distance: 150,
+          color: "#c2c2c2",
+          opacity: 0.5,
+          width: 1,
+        },
+        opacity: { value: 0.5 },
+        size: { value: { min: 1, max: 3 } },
+        move: {
+          enable: true,
+          speed: 1,
+          outModes: { default: OutMode.bounce },
+          direction: MoveDirection.none,
+        },
       },
-      modes: { repulse: { distance: 100 }, push: { quantity: 4 } },
-    },
-    detectRetina: true,
-    background: { color: { value: "var(--color-background)" } },
-  }), []);
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" },
+        },
+        modes: { repulse: { distance: 100 }, push: { quantity: 4 } },
+      },
+      detectRetina: true,
+      background: { color: { value: "var(--color-background)" } },
+    }),
+    [],
+  );
 
   if (!init) return null;
 
