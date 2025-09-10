@@ -19,9 +19,9 @@ function App() {
       <AnimatePresence>{!showHome && <Splash />}</AnimatePresence>
 
       {showHome && (
-        <div className="mx-auto px-10 flex flex-col min-h-screen overflow-hidden">
+        <div className="mx-auto px-10 flex flex-col h-screen overflow-hidden">
           <Navbar />
-          <main className="flex-1 h-full overflow-hidden">
+          <main className="flex-1 h-full">
             <Routes>
               <Route path="/" element={<Home />} />
             </Routes>

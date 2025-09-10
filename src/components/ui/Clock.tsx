@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 
-function Clock() {
+interface Props {
+  color: string;
+}
+
+function Clock({ color }: Props) {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -12,7 +16,7 @@ function Clock() {
   }, []);
 
   return (
-    <div className="text-xs font-normal text-[var(--color-text)]">
+    <div className="text-xs font-normal" style={{ color: color }}>
       BRAZIL{" "}
       {time.toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo" })}
     </div>

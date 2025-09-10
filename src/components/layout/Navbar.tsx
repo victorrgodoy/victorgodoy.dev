@@ -8,11 +8,13 @@ function Navbar() {
 
   return (
     <nav className="h-20 flex justify-between items-center">
-      <Logo />
-      <Clock />
+      <div className="flex gap-4 items-center">
+        <Logo />
+        <Clock color="var(--color-text)"/>
+      </div>
       <div className="flex gap-x-5 items-center text-[var(--color-text)]">
         <p>Mode: {isDark ? "Dark" : "Light"}</p>
-        <ButtonModeDark />
+        <ButtonModeDark color="text-[var(--color-background)]"/>
       </div>
     </nav>
   );
