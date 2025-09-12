@@ -5,7 +5,6 @@ export const Logo = (props: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     width={50}
     height={25}
-    fill="var(--color-text)"
     viewBox="0 0 584 327"
     {...props}
   >

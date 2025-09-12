@@ -1,20 +1,19 @@
-import ButtonModeDark from "../ui/ButtonModeDark";
-import Clock from "../ui/Clock";
-import { Logo } from "../ui/Icon";
-import ObserverDarkMode from "../ui/ObserverDarkMode";
+import { Logo } from "../interface/Icon";
+import ObserverDarkMode from "../interface/ObserverDarkMode";
+import ButtonModeDark from "../interface/ButtonModeDark";
 
 function Navbar() {
   const [isDark] = ObserverDarkMode();
 
   return (
-    <nav className="h-20 flex justify-between items-center">
-      <div className="flex gap-4 items-center">
-        <Logo />
-        <Clock color="var(--color-text)"/>
-      </div>
-      <div className="flex gap-x-5 items-center text-[var(--color-text)]">
-        <p>Mode: {isDark ? "Dark" : "Light"}</p>
-        <ButtonModeDark color="text-[var(--color-background)]"/>
+    <nav className="px-10 h-20 flex justify-between items-center">
+      <Logo className="fill-[var(--color-text-1)]" />
+      <div className="flex gap-x-5 items-center">
+        <p className="text-sm text-[var(--color-text-1)]">Mode: {isDark ? "Dark" : "Light"}</p>
+        <ButtonModeDark
+          background="var(--color-background)"
+          spring="var(--color-text-1)"
+        />
       </div>
     </nav>
   );

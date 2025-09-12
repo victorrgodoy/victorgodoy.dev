@@ -1,35 +1,38 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Splash from "./components/ui/Splash";
 import Navbar from "./components/layout/Navbar";
-import Home from "./pages/Home";
+import Home from "./pages/home/Home";
 import Footer from "./components/layout/Footer";
-import { useEffect, useState } from "react";
+import Animation from "./components/interface/Animation";
 import { AnimatePresence } from "motion/react";
+import { useState } from "react";
 
 function App() {
-  const [showHome, setShowHome] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowHome(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+  const [showAnimation, setShowAnimation] = useState(true);
 
   return (
     <BrowserRouter>
-      <AnimatePresence>{!showHome && <Splash />}</AnimatePresence>
+    <AnimatePresence mode="wait">
+      {showAnimation && ( <Animation key="animation" setShowAnimation={setShowAnimation}/> )}
+    </AnimatePresence>
 
-      {showHome && (
-        <div className="mx-auto px-10 flex flex-col h-screen overflow-hidden">
-          <Navbar />
-          <main className="flex-1 h-full">
-            <Routes>
-              <Route path="/" element={<Home />} />
-            </Routes>
-          </main>
-          <Footer />
+    {!showAnimation && (
+      <div className="flex flex-col h-svh overflow-hidden">
+          <Navbar/>
+          <AnimatePresence mode="wait">
+            <main className="flex-1">
+              <Routes>
+                <Route path="/" element={<Home key="home"/>} />
+              </Routes>
+            </main>
+            <Footer/>
+          </AnimatePresence>
         </div>
-      )}
+    )}
     </BrowserRouter>
   );
 }
 export default App;
+
+// fewf
+
+

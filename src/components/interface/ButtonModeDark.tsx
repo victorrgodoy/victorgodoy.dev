@@ -2,10 +2,11 @@ import { motion } from "motion/react";
 import ObserverDarkMode from "./ObserverDarkMode";
 
 interface Props {
-  color: string;
+  background: string;
+  spring: string;
 }
 
-function ButtonModeDark({ color }: Props) {
+function ButtonModeDark({ background, spring }: Props) {
   const [isDark, setIsDark] = ObserverDarkMode();
 
   const toggleSwitch = () => {
@@ -16,16 +17,17 @@ function ButtonModeDark({ color }: Props) {
 
   return (
     <button
-      className="border-1 rounded-2xl w-9 h-5 flex items-center cursor-pointer"
+      className="border-[var(--color-text-1)] border-1 rounded-2xl w-9 h-5 flex items-center cursor-pointer"
       style={{
         justifyContent: isDark ? "flex-end" : "flex-start",
-        background: color,
+        background: background,
       }}
       onClick={toggleSwitch}
     >
       <motion.div
-        className="bg-[var(--color-text)] w-3 h-3 rounded-full mx-0.5 cursor-pointer"
+        className="w-3 h-3 rounded-full mx-0.5 cursor-pointer"
         layout
+        style={{ background: spring }}
         transition={{
           type: "spring",
           visualDuration: 0.2,
