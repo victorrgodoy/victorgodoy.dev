@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import ObserverDarkMode from "./ObserverDarkMode";
+import ObserverDarkMode from "../../util/ObserverDarkMode";
 
 interface Props {
   background: string;

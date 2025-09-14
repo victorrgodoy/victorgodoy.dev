@@ -1,0 +1,63 @@
+import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
+
+const variants = {
+  initial: { opacity: 0, y: -50 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -50 },
+};
+
+const links = [
+  { id: 1, name: "Home", path: "/" },
+  { id: 2, name: "Project", path: "/project" },
+];
+
+function Navbar() {
+  return (
+    <motion.nav
+      key="navbar"
+      variants={variants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      whileHover={{ scale: 1.04 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="bg-[var(--color-background-2)] text-[var(--color-text-2)] rounded-4xl py-1 shadow-[var(--shadow)]"
+    >
+      <ul className="flex  px-6 py-2 text-lg relative font-normal">
+        {links.map((link) => (
+          <li key={link.id} className="relative">
+            <NavLink to={link.path} end>
+              {({ isActive }) => (
+                <div className="relative px-6 py-1 ">
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeBackground"
+                      className="absolute inset-0 bg-[var(--color-background)] rounded-4xl"
+                      transition={{
+                        type: "spring",
+                        stiffness: 350,
+                        damping: 40,
+                      }}
+                    />
+                  )}
+                  <span
+                    className={`relative z-10 transition-colors ${
+                      isActive
+                        ? "text-[var(--color-text)]"
+                        : "text-[var(--color-text-2)]"
+                    }`}
+                  >
+                    {link.name}
+                  </span>
+                </div>
+              )}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </motion.nav>
+  );
+}
+
+export default Navbar;
