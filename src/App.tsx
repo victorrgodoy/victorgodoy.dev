@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Home from "./pages/home/Home";
-import Project from "./pages/project/Project";
+import Project from "./pages/project/ProjectContent";
 import Footer from "./components/layout/Footer";
 import Animation from "./components/interface/StartAnimation";
 import { AnimatePresence } from "motion/react";
@@ -19,7 +19,7 @@ function App() {
       </AnimatePresence>
 
       {!showAnimation && (
-        <div className="h-svh flex flex-col px-10">
+        <div className="min-h-screen flex flex-col px-20 py-10">
           <Header />
           <AnimatePresence mode="wait">
             <main className="flex-1 h-full">

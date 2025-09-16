@@ -16,7 +16,7 @@ function Clock({ color }: Props) {
   }, []);
 
   return (
-    <div style={{ color: color }}>
+    <div className="text-sm" style={{ color: color }}>
       BRAZIL{" "}
       {time.toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo" })}
     </div>

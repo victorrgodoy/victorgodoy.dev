@@ -20,20 +20,18 @@ function Navbar() {
       initial="initial"
       animate="animate"
       exit="exit"
-      whileHover={{ scale: 1.04 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="bg-[var(--color-background-2)] text-[var(--color-text-2)] rounded-4xl py-1 shadow-[var(--shadow)]"
     >
-      <ul className="flex  px-6 py-2 text-lg relative font-normal">
+      <ul className=" flex gap-x-5 text-lg relative font-normal ">
         {links.map((link) => (
-          <li key={link.id} className="relative">
+          <li key={link.id} className="relative ">
             <NavLink to={link.path} end>
               {({ isActive }) => (
-                <div className="relative px-6 py-1 ">
+                <div className="relative px-6 py-2 ">
                   {isActive && (
                     <motion.div
                       layoutId="activeBackground"
-                      className="absolute inset-0 bg-[var(--color-background)] rounded-4xl"
+                      className="absolute inset-0 bg-[var(--color-text)] rounded-full"
                       transition={{
                         type: "spring",
                         stiffness: 350,
@@ -44,8 +42,8 @@ function Navbar() {
                   <span
                     className={`relative z-10 transition-colors ${
                       isActive
-                        ? "text-[var(--color-text)]"
-                        : "text-[var(--color-text-2)]"
+                        ? "text-[var(--color-text-2)]"
+                        : "text-[var(--color-text)]"
                     }`}
                   >
                     {link.name}

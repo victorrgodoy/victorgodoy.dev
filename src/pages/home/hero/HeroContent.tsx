@@ -27,13 +27,13 @@ function HeroContent() {
 
   return (
     <motion.div
-      className="flex gap-20 items-center justify-center max-w-[1200px] mx-auto"
+      className="grid grid-cols-2"
       variants={containerVariants}
       initial="hidden"
       animate="show"
     >
       {/* left side */}
-      <div className="flex flex-col justify-center h-full gap-y-1">
+      <div className="col-start-2 flex flex-col justify-center h-full gap-y-1">
         <motion.p
           variants={itemVariants}
           className="font-mono text-sm font-medium text-[var(--color-detail)] "
@@ -43,24 +43,29 @@ function HeroContent() {
 
         <motion.h1
           variants={itemVariants}
-          className="text-5xl font-medium mb-5 text-[var(--color-text-1)]"
+          className="text-8xl font-medium mb-5 text-[var(--color-text-1)]"
         >
           VICTOR <span className="text-[var(--color-detail)]">GODOY</span>
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="font-normal text-lg/6 text-[var(--color-detail)] mb-4 max-w-2/3"
+          className="font-normal text-lg/8  text-[var(--color-detail)] mb-4 max-w-2/3"
         >
           Aspiring Developer & Systems Analysis Student. Passionate about
-          solving <span className="text-white">complex problems</span> with
-          <span className="text-white"> simple,</span>
-          <span className="text-white"> efficient solutions.</span>
+          solving{" "}
+          <span className="text-[var(--color-text)]">complex problems</span>{" "}
+          with
+          <span className="text-[var(--color-text)]"> simple,</span>
+          <span className="text-[var(--color-text)]">
+            {" "}
+            efficient solutions.
+          </span>
         </motion.p>
 
         <motion.div
           variants={itemVariants}
-          className="flex gap-4 items-center text-[var(--color-detail)] font-medium text-sm"
+          className="flex gap-4 items-center text-[var(--color-detail)] font-normal text-sm"
         >
           <div className="rounded-full h-2.5 w-2.5 bg-green-400" />
           <p>Available for work</p>
@@ -69,7 +74,7 @@ function HeroContent() {
       </div>
 
       {/* right side */}
-      <motion.div
+      {/* <motion.div
         variants={itemVariants}
         className="flex flex-col gap-4 h-full justify-center"
       >
@@ -87,7 +92,7 @@ function HeroContent() {
             </motion.li>
           ))}
         </ul>
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 }
