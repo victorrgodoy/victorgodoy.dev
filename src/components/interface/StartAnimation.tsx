@@ -36,7 +36,7 @@ function StartAnimation({ setShowAnimation }: Props) {
 
   return (
     <motion.div
-      className="bg-[#0A0A0A] absolute inset-0 text-2xl text-[#FFFFFF] items-center flex justify-center"
+      className="bg-[#0A0A0A] absolute inset-0 text-[3vh] text-[#FFFFFF] font-mono items-center flex justify-center"
       variants={variants}
       initial="visible"
       animate="visible"

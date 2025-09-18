@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { projects } from "./Projects";
+import { projects } from "../../util/Info";
 import FilterButton from "./components/FilterButton";
 import { useState } from "react";
 
@@ -24,21 +24,22 @@ function ProjectContent() {
     },
   };
 
-  const uniqueYears = Array.from(new Set(projects.map(p => p.year))).sort();
+  const uniqueYears = Array.from(new Set(projects.map((p) => p.year))).sort();
   const yearsWithAll = ["All", ...uniqueYears];
 
- const filteredProjects =
-  selectedYear === "All" || selectedYear === "Filter"
-    ? projects.sort((a,b) => b.year - a.year).sort((a,b) => b.id - a.id)
-    : projects.filter((p) => p.year === selectedYear).sort((a,b) => b.id - a.id);
-
+  const filteredProjects =
+    selectedYear === "All" || selectedYear === "Filter"
+      ? projects.sort((a, b) => b.year - a.year).sort((a, b) => b.id - a.id)
+      : projects
+          .filter((p) => p.year === selectedYear)
+          .sort((a, b) => b.id - a.id);
 
   return (
     <motion.section
       variants={containerVariants}
       initial="hidden"
       animate="show"
-      className="py-40 flex flex-col max-w-[800px] justify-center mx-auto"
+      className="py-40 flex flex-col max-w-[1000px] justify-center"
     >
       <motion.h1
         variants={itemVariants}
@@ -55,12 +56,11 @@ function ProjectContent() {
           Explore the group and personal projects I developed during university.
         </p>
 
-        <FilterButton 
-          year={selectedYear} 
+        <FilterButton
+          year={selectedYear}
           years={yearsWithAll}
           onSelect={(year) => setSelectedYear(year)}
         />
-
       </motion.div>
 
       {filteredProjects.map((p) => (
@@ -82,16 +82,25 @@ function ProjectContent() {
               </p>
             </div>
           </div>
-          <div className="overflow-hidden w-[800px] rounded-xl mb-4">
-            <motion.div
-              className="flex gap-5"
-              drag="x"
-              dragConstraints={{ left: -700, right: 0 }}
-              transition={{ type: "spring", stiffness: 200, damping: 30 }}
-            >
-              <div className="bg-[var(--color-detail)] h-[300px] w-[700px] rounded-xl flex-shrink-0" />
-              <div className="bg-[var(--color-detail)] h-[300px] w-[700px] rounded-xl flex-shrink-0" />
-            </motion.div>
+          <div className="overflow-hidden w-[1000px] rounded-xl mb-4">
+            <div className="overflow-hidden w-[1000px] rounded-xl mb-4">
+              <motion.div
+                className="flex gap-5"
+                drag="x"
+                dragConstraints={{ left: -1400, right: 0 }}
+                transition={{ type: "spring", stiffness: 100, damping: 30 }}
+              >
+                {(p.imgs || []).map((img, index) => (
+                  <img
+                    key={`${p.id}-${index}`}
+                    src={img}
+                    alt={`${p.name} ${index + 1}`}
+                    className="h-[400px] w-[700px] rounded-xl flex-shrink-0"
+                    draggable={false}
+                  />
+                ))}
+              </motion.div>
+            </div>
           </div>
           <div className="flex gap-3">
             {" "}

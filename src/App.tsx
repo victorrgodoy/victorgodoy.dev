@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Home from "./pages/home/Home";
-import Project from "./pages/project/ProjectContent";
+// import Project from "./pages/project/ProjectContent";
 import Footer from "./components/layout/Footer";
 import Animation from "./components/interface/StartAnimation";
 import { AnimatePresence } from "motion/react";
 import { useState } from "react";
+import Navbar from "./components/interface/Navbar";
 
 function App() {
   const [showAnimation, setShowAnimation] = useState(true);
@@ -19,15 +20,16 @@ function App() {
       </AnimatePresence>
 
       {!showAnimation && (
-        <div className="min-h-screen flex flex-col px-20 py-10">
+        <div className="h-dvh flex flex-col px-10 py-7">
           <Header />
           <AnimatePresence mode="wait">
-            <main className="flex-1 h-full">
+            <main className="flex-1">
               <Routes>
                 <Route path="/" element={<Home key="home" />} />
-                <Route path="/project" element={<Project key="project" />} />
+                <Route path="/project" element={<Home key="home" />} />
               </Routes>
             </main>
+             <Navbar />
           </AnimatePresence>
           <Footer />
         </div>

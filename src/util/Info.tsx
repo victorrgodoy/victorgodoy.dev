@@ -32,6 +32,11 @@ export const projects = [
     client: "Fatec",
     year: 2025,
     link: <a href="https://github.com/CodeDontBlow/PontoLog">Github</a>,
+    imgs: [
+      "/assets/img/pontolog_1.png",
+      "/assets/img/pontolog_2.png",
+      "/assets/img/pontolog_3.png",
+    ],
   },
   {
     id: 4,

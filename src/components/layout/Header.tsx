@@ -1,29 +1,20 @@
-import Logo from "../../icons/Logo";
-import Navbar from "../interface/Navbar";
-
-import ObserverDarkMode from "../../util/ObserverDarkMode";
+import { Logo } from "../../util/Icons";
+import Clock from "../interface/Clock";
 import ButtonModeDark from "../interface/ButtonModeDark";
 
 function Header() {
-  const [isDark] = ObserverDarkMode();
-
   return (
-    <header className="grid grid-cols-2">
-      <Logo className="col-start-1 fill-[var(--color-text)]" />
-      <div className="col-start-2  flex justify-between">
-        <Navbar />
-        <div className="flex gap-x-5 items-center">
-          <p className="text-lg text-[var(--color-text)]">
-            {isDark ? "DARK" : "LIGHT"} MODE
-          </p>
-          <ButtonModeDark
-            background="var(--color-background)"
-            spring="var(--color-text)"
-          />
-        </div>
+    <header className="flex justify-between items-center">
+      <Logo fill="var(--color-text)" />
+      <div className="flex items-center gap-4">
+        <Clock color="var(--color-text)" />
+      <ButtonModeDark
+        background="var(--color-background)"
+        spring="var(--color-text)"
+      />
+      
       </div>
     </header>
   );
 }
-
 export default Header;
