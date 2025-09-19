@@ -1,9 +1,9 @@
-import Hero from "./Hero";
+import HomeHero from "./HomeHero";
 
 function Home() {
   return (
     <section id="hero" className="h-full flex flex-col">
-      <Hero />
+      <HomeHero />
     </section>
   );
 }

@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Home from "./pages/home/Home";
-// import Project from "./pages/project/ProjectContent";
+import Project from "./pages/project/Project";
 import Footer from "./components/layout/Footer";
 import Animation from "./components/interface/StartAnimation";
 import { AnimatePresence } from "motion/react";
@@ -26,7 +26,7 @@ function App() {
             <main className="flex-1">
               <Routes>
                 <Route path="/" element={<Home key="home" />} />
-                <Route path="/project" element={<Home key="home" />} />
+                <Route path="/project" element={<Project key="project" />} />
               </Routes>
             </main>
              <Navbar />

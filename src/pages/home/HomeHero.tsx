@@ -17,7 +17,7 @@ const focus = [
   },
 ];
 
-function Hero() {
+function HomeHero() {
   return (
     <motion.div
       variants={containerVariants}
@@ -69,4 +69,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default HomeHero;
