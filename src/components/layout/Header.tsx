@@ -8,11 +8,10 @@ function Header() {
       <Logo fill="var(--color-text)" />
       <div className="flex items-center gap-4">
         <Clock color="var(--color-text)" />
-      <ButtonModeDark
-        background="var(--color-background)"
-        spring="var(--color-text)"
-      />
-      
+        <ButtonModeDark
+          background="var(--color-background)"
+          spring="var(--color-text)"
+        />
       </div>
     </header>
   );

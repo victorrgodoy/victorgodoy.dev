@@ -20,12 +20,15 @@ function Navbar() {
       initial="initial"
       animate="animate"
       exit="exit"
-       transition={{ type: "spring", stiffness: 30, damping: 18 }} // menos stiffness → mais suave
+      transition={{ type: "spring", stiffness: 30, damping: 18 }} // menos stiffness → mais suave
       className="fixed bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 px-3 py-2"
     >
       <ul className="flex gap-4 relative font-normal">
         {links.map((link) => (
-          <li key={link.id} className="relative border border-dashed rounded-lg text-[2vh]">
+          <li
+            key={link.id}
+            className="relative border border-dashed rounded-lg text-[2vh]"
+          >
             <NavLink to={link.path} end>
               {({ isActive }) => (
                 <div className="relative px-4 py-1">

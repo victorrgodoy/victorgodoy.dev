@@ -29,7 +29,7 @@ function App() {
                 <Route path="/project" element={<Project key="project" />} />
               </Routes>
             </main>
-             <Navbar />
+            <Navbar />
           </AnimatePresence>
           <Footer />
         </div>

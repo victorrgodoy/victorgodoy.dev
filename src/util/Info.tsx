@@ -8,7 +8,10 @@ export const projects = [
     client: "Fatec",
     year: 2024,
     link: <a href="https://github.com/victorrgodoy/chat-bot-sql">Github</a>,
-    type: "Artificial Intelligence / API REST / Web application"
+    type: {
+      category: ["AI"],
+      platform: "Desktop App",
+    },
   },
   {
     id: 2,
@@ -18,8 +21,15 @@ export const projects = [
     stack: ["Typescript", "Express", "React", "Bootstrap", "Postgresql"],
     client: "Fatec",
     year: 2025,
-    link: <a href="https://github.com/victorrgodoy/poo-fatec/tree/main/atvv-pl-typescript">Github</a>,
-    type: "Artificial Intelligence / API REST / Web application"
+    link: (
+      <a href="https://github.com/victorrgodoy/poo-fatec/tree/main/atvv-pl-typescript">
+        Github
+      </a>
+    ),
+    type: {
+      category: ["API Rest"],
+      platform: "Web App",
+    },
   },
   {
     id: 3,
@@ -30,7 +40,7 @@ export const projects = [
     client: "Fatec",
     year: 2025,
     link: <a href="https://github.com/CodeDontBlow/PontoLog">Github</a>,
-    type: "Artificial Intelligence / API REST / Web application",
+    type: { category: ["Data", "API Rest"], platform: "Web App" },
     imgs: [
       "/assets/img/pontolog_1.png",
       "/assets/img/pontolog_2.png",
@@ -53,6 +63,9 @@ export const projects = [
     client: "TecSys",
     year: 2025,
     link: <a href="https://github.com/CodeDontBlow/API-4SEMESTRE">Github</a>,
-    type: "Artificial Intelligence / API REST / Web application"
+    type: {
+      category: ["AI", "API Rest"],
+      platform: "Web App",
+    },
   },
 ];
